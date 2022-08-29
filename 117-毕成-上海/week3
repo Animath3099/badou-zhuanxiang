@@ -1,0 +1,96 @@
+#week3作业
+
+#词典；每个词后方存储的是其词频，词频仅为示例，不会用到，也可自行修改
+Dict = {"经常":0.1,
+        "经":0.05,
+        "有":0.1,
+        "常":0.001,
+        "有意见":0.1,
+        "歧":0.001,
+        "意见":0.2,
+        "分歧":0.2,
+        "见":0.05,
+        "意":0.05,
+        "见分歧":0.05,
+        "分":0.1}
+
+#待切分文本
+sentence = "经常有意见分歧"
+
+#实现全切分函数，输出根据字典能够切分出的所有的切分方式
+def all_cut(sentence, Dict):
+    """
+    based on Dict, return all possible combinations of cut.
+    all_cut(str, dict) --> lis(lis)
+    """
+    target = []
+    # base case
+    if len(sentence) == 0:
+        return target
+    # recursion
+    idx = 1
+    while idx < len(sentence) + 1:
+        word = sentence[:idx]
+        if word in Dict:
+            sub_sentence = all_cut(sentence[idx:], Dict)
+            if len(sub_sentence) == 0: # nothing left for futher slicing
+                target.append([word])
+            else:
+                for w in sub_sentence: # common case
+                    target.append([word] + w)
+        idx += 1
+    return target
+
+
+
+#目标输出;顺序不重要
+target = [
+    ['经常', '有意见', '分歧'],
+    ['经常', '有意见', '分', '歧'],
+    ['经常', '有', '意见', '分歧'],
+    ['经常', '有', '意见', '分', '歧'],
+    ['经常', '有', '意', '见分歧'],
+    ['经常', '有', '意', '见', '分歧'],
+    ['经常', '有', '意', '见', '分', '歧'],
+    ['经', '常', '有意见', '分歧'],
+    ['经', '常', '有意见', '分', '歧'],
+    ['经', '常', '有', '意见', '分歧'],
+    ['经', '常', '有', '意见', '分', '歧'],
+    ['经', '常', '有', '意', '见分歧'],
+    ['经', '常', '有', '意', '见', '分歧'],
+    ['经', '常', '有', '意', '见', '分', '歧']
+]
+
+def all_cut_test(sentence, Dict, target):
+    """
+    Test whether the length of output and target are equal. 
+    The outputs of all_cut function included in target or not.
+    _test(str, dict, list(list)) --> raise error if bad things happened! Otherwise, return None.
+    """
+    output = all_cut(sentence, Dict)
+    assert len(output) == len(target), "Length of output doesn't equal to length of target!"
+    for _list in output:
+        if _list not in target:
+            print("all_cut function doesn't work!")
+            break
+    return
+
+# print(all_cut_test(sentence, Dict, target))
+
+def best_cut(sentence, Dict):
+    """
+    return best cut for sentence based on total score from Dict.
+    best_cut(str, dict) --> list
+    """
+    import numpy as np
+    score_list = []
+    output = all_cut(sentence, Dict)
+    for cut in output:
+        score = 0
+        for word in cut:
+            score += Dict.get(word)
+        score_list.append(score)
+    best = np.argmax(score_list)
+    return output[best]
+
+# print(best_cut(sentence, Dict))
