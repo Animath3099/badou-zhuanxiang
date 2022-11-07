@@ -1,0 +1,23 @@
+label_to_index = {
+    "B-address":1,
+    "I-address":2,
+    "B-book":3,
+    "I-book":4,
+    "B-company":5,
+    "I-company":6,
+    "B-game":7,
+    "I-game":8,
+    "B-government":9,
+    "I-government":10,
+    "B-movie":11,
+    "I-movie":12,
+    "B-name":13,
+    "I-name":14,
+    "B-organization":15,
+    "I-organization":16,
+    "B-position":17,
+    "I-position":18,
+    "B-scene":19,
+    "I-scene":20,
+    "O":0
+}
