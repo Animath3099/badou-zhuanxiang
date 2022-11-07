@@ -1,0 +1,10 @@
+model,最后一轮准确率,model_path,data_path,vocab_path,model_type,max_length,hidden_size,kernel_size,num_layers,epoch,batch_size,pooling_style,optimizer,learning_rate,pretrain_model_path,seed,k_fold_number,class_num,vocab_size,耗时
+gated_cnn,0.862149533,output,../test.json,../chars.txt,gated_cnn,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,51.38426018
+cnn,0.864485981,output,../test.json,../chars.txt,cnn,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,35.42748618
+fast_text,0.869742991,output,../test.json,../chars.txt,fast_text,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,23.9113574
+lstm,0.863317757,output,../test.json,../chars.txt,lstm,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,352.4796536
+gru,0.863317757,output,../test.json,../chars.txt,gru,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,270.0802035
+rnn,0.862733645,output,../test.json,../chars.txt,rnn,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,106.2773023
+stack_gated_cnn,0.857476636,output,../test.json,../chars.txt,stack_gated_cnn,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,150.5844564
+rcnn,0.858060748,output,../test.json,../chars.txt,rcnn,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,115.943085
+bert,0.654205607,output,../test.json,../chars.txt,bert,20,128,3,2,15,64,avg,adam,0.001,E:\02 AI\badou-zhuanxiang-main\52-罗仕祥-广东\第六周作业\bert-base-chinese,987,7,2,4622,20483.90423
